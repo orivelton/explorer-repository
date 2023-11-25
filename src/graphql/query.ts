@@ -4,7 +4,7 @@ export const GET_REPO = gql`
   query {
     search(
       type: REPOSITORY
-      query: "is:public language:javascript stars:>100 topic:react"
+      query: "is:public language:javascript stars:>100 topic:react,library"
       first: 100
     ) {
       repositoryCount

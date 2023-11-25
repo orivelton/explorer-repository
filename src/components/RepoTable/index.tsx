@@ -3,6 +3,10 @@ import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
 import { useQuery } from '@apollo/client'
 import { GET_REPO } from '../../graphql/query'
 import { Box } from '@mui/system'
+import { RepoElement, Repository } from '../../types/repository'
+import { Alert } from '@mui/material'
+import { FaStar } from 'react-icons/fa'
+import { PiGitForkBold } from 'react-icons/pi'
 
 const columns: GridColDef[] = [
   {
@@ -20,10 +24,14 @@ const columns: GridColDef[] = [
   },
   {
     field: 'stargazerCount',
-    headerName: 'Stars',
     type: 'number',
     filterable: true,
     sortable: true,
+    renderHeader: () => (
+      <strong>
+        <FaStar /> Stars
+      </strong>
+    ),
   },
   {
     field: 'forkCount',
@@ -31,20 +39,31 @@ const columns: GridColDef[] = [
     type: 'number',
     filterable: true,
     sortable: true,
+    renderHeader: () => (
+      <strong>
+        <PiGitForkBold /> Forks
+      </strong>
+    ),
   },
 ]
 
 export default function RepoTable() {
-  const { loading, error, data } = useQuery(GET_REPO, {
+  const { loading, error, data } = useQuery<Repository>(GET_REPO, {
     variables: {
       page: 10,
     },
   })
 
-  const rows = data?.search.repos.map((item: any) => item.repo) || []
+  const rows = data?.search.repos.map((item: RepoElement) => item.repo) || []
 
   return (
     <Box>
+      {error ? (
+        <Alert sx={{ mb: 2 }} severity='error'>
+          {error?.message}
+        </Alert>
+      ) : null}
+
       <DataGrid
         loading={loading}
         rows={rows}
