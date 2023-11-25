@@ -1,12 +1,18 @@
 import React from 'react'
-import { useQuery, gql } from '@apollo/client'
-import { GET_REPO } from './graphql/query'
+import { Container, Paper } from '@mui/material'
+import RepoTable from './components/RepoTable'
 
 function App() {
-  const { loading, error, data } = useQuery(GET_REPO)
-
-  // console.log("data", data);
-  return <div className='App'>Hi</div>
+  return (
+    <div className='App'>
+      <Container maxWidth='sm'>
+        <Paper sx={{ p: 2, my: 2, textAlign: 'center' }} component='h1'>
+          Explorer Repository
+        </Paper>
+        <RepoTable />
+      </Container>
+    </div>
+  )
 }
 
 export default App
