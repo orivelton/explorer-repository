@@ -6,8 +6,8 @@ import { successMock } from './helpers/tests/mock'
 import { client } from './graphql'
 import { ApolloProvider } from '@apollo/client'
 
-describe('RepoTable component', () => {
-  test('renders RepoTable component', () => {
+describe('App component', () => {
+  test('renders App component', () => {
     render(
       <ApolloProvider client={client}>
         <MockedProvider mocks={successMock}>
