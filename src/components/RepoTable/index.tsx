@@ -1,11 +1,11 @@
 import React from 'react'
-import { DataGrid } from '@mui/x-data-grid'
 import { useQuery } from '@apollo/client'
-import { GET_REPO } from '../../graphql/query'
+import { DataGrid } from '@mui/x-data-grid'
 import { Box } from '@mui/system'
-import { RepoElement, Repository } from '../../types/repository'
-import { columns } from '../../helpers/tableConfig'
 import { MuiAlert } from '../MuiAlert'
+import { columns } from '../../helpers/tableConfig'
+import { RepoElement, Repository } from '../../types/repository'
+import { GET_REPO } from '../../graphql/query'
 
 export default function RepoTable() {
   const { loading, error, data } = useQuery<Repository>(GET_REPO, {
@@ -13,6 +13,7 @@ export default function RepoTable() {
       first: 100,
     },
   })
+
   const rows = data?.search.repos.map((item: RepoElement) => item.repo) || []
 
   if (error) return <MuiAlert severity='error' message={error?.message} />

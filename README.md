@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Getting Started with explorer-repository
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project list React repository from Github in a table where you can filter and sorte by name, stars, and forks.
+
+![explorer-repository demo](./docs/demo.gif 'Demo')
 
 ## Available Scripts
 
@@ -29,18 +31,14 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Docker
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Create image:
+`docker image build -t explorer-repository:latest -f Dockerfile.dev .`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run image
+`docker run -p 3000:3000 --name explorer-repository explorer-repository:latest`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### .env file
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can find a `.env.example` file that contains the `REACT_APP_GITHUB_TOKEN` variable. Generate your personal token on https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-a-personal-access-token

@@ -5,9 +5,9 @@ import { MockedProvider } from '@apollo/client/testing'
 import { successMock } from '../../helpers/tests/mock'
 
 describe('RepoTable component', () => {
-  test('renders RepoTable component', () => {
+  test('renders RepoTable component success request', () => {
     render(
-      <MockedProvider mocks={successMock}>
+      <MockedProvider mocks={successMock} addTypename={false}>
         <RepoTable />
       </MockedProvider>,
     )

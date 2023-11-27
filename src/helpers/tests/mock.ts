@@ -5,6 +5,9 @@ export const successMock = [
   {
     request: {
       query: GET_REPO,
+      variables: {
+        first: 100,
+      },
     },
     result: {
       data: {
@@ -17,7 +20,7 @@ export const successMock = [
                 forkCount: 45469,
                 id: 'MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==',
                 name: 'react',
-                stargazerCount: 215656,
+                stargazerCount: 215678,
                 url: 'https://github.com/facebook/react',
                 __typename: 'Repository',
               },
@@ -41,9 +44,10 @@ export const errorMock = [
   {
     request: {
       query: GET_REPO,
+      variables: {
+        first: 100,
+      },
     },
-    error: {
-      message: 'Not Found',
-    },
+    result: {},
   },
 ]
