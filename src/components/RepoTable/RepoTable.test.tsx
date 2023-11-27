@@ -2,8 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import RepoTable from './index'
 import { MockedProvider } from '@apollo/client/testing'
-import { GET_REPO } from '../../graphql/query'
-import { errorMock, successMock } from '../../helpers/tests/mock'
+import { successMock } from '../../helpers/tests/mock'
 
 describe('RepoTable component', () => {
   test('renders RepoTable component', () => {

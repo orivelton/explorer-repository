@@ -8,10 +8,12 @@ import { columns } from '../../helpers/tableConfig'
 import { MuiAlert } from '../MuiAlert'
 
 export default function RepoTable() {
-  const { loading, error, data } = useQuery<Repository>(GET_REPO)
+  const { loading, error, data } = useQuery<Repository>(GET_REPO, {
+    variables: {
+      first: 100,
+    },
+  })
   const rows = data?.search.repos.map((item: RepoElement) => item.repo) || []
-
-  console.log('%cindex.tsx line:14 error', 'color: #007acc;', error)
 
   if (error) return <MuiAlert severity='error' message={error?.message} />
 
