@@ -1,4 +1,3 @@
-import { GraphQLError } from 'graphql'
 import { GET_REPO } from '../../graphql/query'
 
 export const successMock = [
@@ -37,17 +36,5 @@ export const successMock = [
         },
       },
     },
-  },
-]
-
-export const errorMock = [
-  {
-    request: {
-      query: GET_REPO,
-      variables: {
-        first: 100,
-      },
-    },
-    result: {},
   },
 ]

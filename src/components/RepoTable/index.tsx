@@ -14,9 +14,9 @@ export default function RepoTable() {
     },
   })
 
-  const rows = data?.search.repos.map((item: RepoElement) => item.repo) || []
-
   if (error) return <MuiAlert severity='error' message={error?.message} />
+
+  const rows = data?.search.repos.map((item: RepoElement) => item.repo) || []
 
   return (
     <Box>
