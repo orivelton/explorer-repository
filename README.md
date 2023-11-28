@@ -1,6 +1,6 @@
 # Getting Started with explorer-repository
 
-This project list React repository from Github in a table where you can filter and sorte by name, stars, and forks.
+This project lists Github React repositories in a table where you can filter and sort by name, stars, and forks.
 
 ![explorer-repository demo](./docs/demo.gif 'Demo')
 
