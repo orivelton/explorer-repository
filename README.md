@@ -2,6 +2,8 @@
 
 This project lists Github React repositories in a table where you can filter and sort by name, stars, and forks.
 
+[DEMO](https://orivelton.github.io/explorer-repository/)
+
 ![explorer-repository demo](./docs/demo.gif 'Demo')
 
 ## Available Scripts
