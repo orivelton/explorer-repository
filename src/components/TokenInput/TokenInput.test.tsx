@@ -10,7 +10,7 @@ describe('TokenInput component', () => {
     })
   })
 
-  it('renders the component with the initial token value', () => {
+  test('renders the component with the initial token value', () => {
     render(<TokenInput />)
     const tokenInput: HTMLInputElement = screen.getByPlaceholderText(
       'Add your github personal access token',
@@ -19,7 +19,7 @@ describe('TokenInput component', () => {
     expect(tokenInput.value).toBe(localStorage.getItem('token') || '')
   })
 
-  it('updates the token value on input change', () => {
+  test('updates the token value on input change', () => {
     render(<TokenInput />)
     const tokenInput: HTMLInputElement = screen.getByPlaceholderText(
       'Add your github personal access token',
@@ -30,7 +30,7 @@ describe('TokenInput component', () => {
     expect(tokenInput.value).toBe('newTokenValue')
   })
 
-  it('sets the token in local storage and reloads the page on valid input', () => {
+  test('sets the token in local storage and reloads the page on valid input', () => {
     render(<TokenInput />)
     const tokenInput = screen.getByPlaceholderText(
       'Add your github personal access token',
@@ -43,7 +43,7 @@ describe('TokenInput component', () => {
     expect(window.location.reload).toHaveBeenCalled()
   })
 
-  it('does not reload the page on empty input', () => {
+  test('does not reload the page on empty input', () => {
     render(<TokenInput />)
     const tokenInput = screen.getByPlaceholderText(
       'Add your github personal access token',
@@ -54,7 +54,7 @@ describe('TokenInput component', () => {
     expect(window.location.reload).not.toHaveBeenCalled()
   })
 
-  it('displays an error when token is empty', () => {
+  test('displays an error when token is empty', () => {
     render(<TokenInput />)
     const tokenInput = screen.getByPlaceholderText(
       'Add your github personal access token',
