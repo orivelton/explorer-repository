@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import { TextField, Typography } from '@mui/material'
+import { Paper, TextField, Typography } from '@mui/material'
 
 export function TokenInput() {
   const hasToken = localStorage.getItem('token')
@@ -14,9 +14,10 @@ export function TokenInput() {
   }
 
   return (
-    <>
+    <Paper sx={{ mt: '60vh', p: 2 }} elevation={10}>
       <TextField
         variant='outlined'
+        size='small'
         placeholder='Add your github personal access token'
         sx={{ my: 2 }}
         fullWidth
@@ -33,6 +34,6 @@ export function TokenInput() {
           Get you personal access token
         </a>
       </Typography>
-    </>
+    </Paper>
   )
 }
