@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react'
 import { TextField, Typography } from '@mui/material'
 
-export default function TokenInput() {
+export function TokenInput() {
   const hasToken = localStorage.getItem('token')
   const [token, setToken] = useState(hasToken ?? '')
 
@@ -10,7 +10,7 @@ export default function TokenInput() {
   }: ChangeEvent<HTMLInputElement>) => {
     setToken(value)
     localStorage.setItem('token', value)
-    value && window.location.reload()
+    value && window.location?.reload()
   }
 
   return (
